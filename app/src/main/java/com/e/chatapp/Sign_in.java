@@ -74,7 +74,7 @@ public class Sign_in extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {                               //Customise validation
                     if (dataSnapshot.child(username).exists()) {
                         if (!username.isEmpty()) {
-                            User login = dataSnapshot.child(username).getValue(User.class);
+                            User login = dataSnapshot.child(username).getValue(User.class);         //store value by User.java class
                             String email = login.getEmail();
                             if (login.getPassword().equals(password)) {
                                 firebaseAuth.signInWithEmailAndPassword(email, password)            //firebase auto verification
