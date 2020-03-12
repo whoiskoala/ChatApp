@@ -71,13 +71,13 @@ public class Sign_in extends AppCompatActivity {
         if (validation) {
             users.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
+                public void onDataChange(DataSnapshot dataSnapshot) {                               //Customise validation
                     if (dataSnapshot.child(username).exists()) {
                         if (!username.isEmpty()) {
                             User login = dataSnapshot.child(username).getValue(User.class);
                             String email = login.getEmail();
                             if (login.getPassword().equals(password)) {
-                                firebaseAuth.signInWithEmailAndPassword(email, password)            //firebase auto auth
+                                firebaseAuth.signInWithEmailAndPassword(email, password)            //firebase auto verification
                                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
