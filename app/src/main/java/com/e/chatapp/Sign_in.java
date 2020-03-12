@@ -77,7 +77,7 @@ public class Sign_in extends AppCompatActivity {
                             User login = dataSnapshot.child(username).getValue(User.class);
                             String email = login.getEmail();
                             if (login.getPassword().equals(password)) {
-                                firebaseAuth.signInWithEmailAndPassword(email, password)
+                                firebaseAuth.signInWithEmailAndPassword(email, password)            //firebase auto auth
                                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
