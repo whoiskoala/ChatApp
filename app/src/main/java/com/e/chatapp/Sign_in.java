@@ -3,7 +3,9 @@ package com.e.chatapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
@@ -62,7 +64,7 @@ public class Sign_in extends AppCompatActivity {
 
     public void sign_in(View view) {
 
-        final String username = input_username.getEditText().getText().toString();
+        final String useremail = input_username.getEditText().getText().toString();
         final String password = input_password.getEditText().getText().toString();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference users = database.getReference("Users");
@@ -71,17 +73,26 @@ public class Sign_in extends AppCompatActivity {
         if (validation) {
             users.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {                               //Customise validation
-                    if (dataSnapshot.child(username).exists()) {
-                        if (!username.isEmpty()) {
-                            User login = dataSnapshot.child(username).getValue(User.class);         //store value by User.java class
-                            String email = login.getEmail();
-                            if (login.getPassword().equals(password)) {
-                                firebaseAuth.signInWithEmailAndPassword(email, password)            //firebase auto verification
+                public void onDataChange(final DataSnapshot dataSnapshot) {                               //Customise validation
+//                    if (dataSnapshot.child(currentuser).exists()) {
+                        if (!useremail.isEmpty()) {
+//                            if (login.getPassword().equals(password)) {
+                                firebaseAuth.signInWithEmailAndPassword(useremail, password)            //firebase auto verification
                                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if (task.isSuccessful()) {
+                                                    final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                                    final User login = dataSnapshot.child(currentuser).getValue(User.class);         //store value by User.java class
+                                                    String username = login.getUsername();
+                                                    SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                    editor.putString("username", username);
+                                                    String birthday = login.getBirthday();
+                                                    editor.putString("birthday", birthday);
+                                                    editor.putString("password", password);
+                                                    editor.putString("email", useremail);
+                                                    editor.commit();
                                                     startActivity(new Intent(Sign_in.this, Main_page.class));
                                                     Toast.makeText(Sign_in.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
                                                 } else {
@@ -90,13 +101,15 @@ public class Sign_in extends AppCompatActivity {
                                                 }
                                             }
                                         });
-                            } else {
-                                Toast.makeText(Sign_in.this, "Wrong password !", Toast.LENGTH_SHORT).show();
-                            }
+//                            }
+//                        else {
+//                                Toast.makeText(Sign_in.this, "Wrong password !", Toast.LENGTH_SHORT).show();
+//                            }
                         }
-                    } else
-                        Toast.makeText(Sign_in.this, "User doesn't exist !", Toast.LENGTH_SHORT).show();
-                }
+                    }
+//                    else
+//                        Toast.makeText(Sign_in.this, "User doesn't exist !", Toast.LENGTH_SHORT).show();
+//                }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {

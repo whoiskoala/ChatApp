@@ -1,6 +1,7 @@
 package com.e.chatapp.User_package;
 
 public class User {
+    private String userID;
     private String username;
     private String password;
     private String email;
@@ -10,13 +11,21 @@ public class User {
 
     }
 
-    public User(String username,  String email, String birthday,String password){
+    public User( String username,  String email, String birthday,String password){
+//        this.userID = userID;
         this.username = username;
         this.email = email;
         this.birthday = birthday;
         this.password = password;
     }
 
+//    public String getUserID(){
+//        return userID;
+//    }
+//    public void setUserID(String userID) {
+//        this.userID = userID;
+//    }
+//
     public String getUsername(){
         return username;
     }

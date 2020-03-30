@@ -93,7 +93,7 @@ public class Sign_up extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-
+                                final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
                                 final User user = new User(input_username.getEditText().getText().toString(),
                                         input_email.getEditText().getText().toString(),
                                         choose_birthday.getText().toString(),
@@ -101,15 +101,14 @@ public class Sign_up extends AppCompatActivity {
                                 users.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-                                        if (dataSnapshot.child(user.getUsername()).exists())
+                                        if (dataSnapshot.child(currentuser).exists())
                                             Toast.makeText(Sign_up.this, "Username already exist!", Toast.LENGTH_SHORT).show();
                                         else {
-                                            users.child(user.getUsername()).setValue(user);
+                                            users.child(currentuser).setValue(user);
                                             Toast.makeText(Sign_up.this, "Sign up successful!", Toast.LENGTH_SHORT).show();
                                                 startActivity(new Intent(Sign_up.this,Sign_in.class));
                                         }
                                     }
-
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
                                         throw databaseError.toException();
