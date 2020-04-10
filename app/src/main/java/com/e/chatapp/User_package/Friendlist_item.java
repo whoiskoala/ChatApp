@@ -1,19 +1,38 @@
 package com.e.chatapp.User_package;
 
 public class Friendlist_item {
-    private String name;
-    private int imageId;
+    public String username;
+    public String email;
+    public String image;
 
-    public Friendlist_item(String name, int imageId) {
-        this.name = name;
-        this.imageId = imageId;
+    public Friendlist_item(){
+
+    }
+
+    public Friendlist_item(String username, String image, String email) {
+        this.username = username;
+        this.image = image;
+        this.email = email;
     }
 
     public String getFriendName() {
-        return name;
+        return username;
+    }
+    public void setFriendName(String username) {
+        this.username = username;
     }
 
-    public int getImageId() {
-        return imageId;
+    public String getFriendEmail() {
+        return email;
+    }
+    public void setFriendEmail(String email) {
+        this.email = email;
+    }
+
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
     }
 }
