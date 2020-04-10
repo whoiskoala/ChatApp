@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -70,10 +71,21 @@ public class Nearby_user extends AppCompatActivity {
         FirebaseRecyclerAdapter<Friendlist_item, FindFriendViewHolder> adapter =
                 new FirebaseRecyclerAdapter<Friendlist_item, FindFriendViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull FindFriendViewHolder holder, int i, @NonNull Friendlist_item model) {
+                    protected void onBindViewHolder(@NonNull FindFriendViewHolder holder, final int position, @NonNull Friendlist_item model) {
                         holder.userName.setText(model.getFriendName());
                         holder.userEmail.setText(model.getFriendEmail());
                         Picasso.get().load(model.getImage()).placeholder(R.drawable.icon_user).into(holder.profileImage);
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String user_ID = getRef(position).getKey();
+
+                                Intent profileIntent = new Intent(Nearby_user.this, User_profile.class);
+                                profileIntent.putExtra("user_ID",user_ID);
+                                startActivity(profileIntent);
+                            }
+                        });
                     }
 
                     @NonNull
