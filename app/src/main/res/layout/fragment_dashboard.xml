@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dashboard"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <!--    <TextView-->
@@ -20,18 +23,19 @@
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
                     android:background="@drawable/profile_backgroud"
                     android:paddingBottom="5dp">
 
-                    <ImageView
-                        android:id="@+id/profilePortrait"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/icon_user" />
+<!--                    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                        android:background="@drawable/border_1"-->
+<!--                        android:id="@+id/profilePortrait"-->
+<!--                        android:layout_width="120dp"-->
+<!--                        android:layout_height="120dp"-->
+<!--                        android:layout_alignParentBottom="true"-->
+<!--                        android:layout_centerHorizontal="true"-->
+<!--                        android:src="@drawable/icon_user" />-->
                 </RelativeLayout>
 
                 <TextView
@@ -70,15 +74,14 @@
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:background="@color/fui_buttonShadow"
+                <Button
                     android:id="@+id/edit_profile"
+                    android:background="@color/fui_buttonShadow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/outline_create_black_18dp"
                     android:drawablePadding="20dp"
                     android:gravity="center_vertical"
-                    android:onClick="Click_Edit"
                     android:paddingLeft="20dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
@@ -86,9 +89,9 @@
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
-                <TextView
+                <Button
+                    android:background="@android:color/white"
                     android:id="@+id/my_post"
-                    android:onClick="Click_my_Post"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/outline_library_books_black_18dp"
@@ -101,10 +104,9 @@
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
-                <TextView
+                <Button
                     android:background="@color/fui_buttonShadow"
                     android:id="@+id/nearby_user"
-                    android:onClick="Click_nearby_User"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/outline_person_pin_circle_black_18dp"
@@ -117,9 +119,9 @@
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
-                <TextView
+                <Button
+                    android:background="@android:color/white"
                     android:id="@+id/setting"
-                    android:onClick="Click_Setting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/outline_settings_black_18dp"
@@ -132,10 +134,5 @@
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
-                <ImageView
-                    android:id="@+id/userinfo_fill"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
-                    android:visibility="gone" />
 </LinearLayout>
+    </ScrollView>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,55 +29,26 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DashboardFragment extends Fragment {
+
+    public DashboardFragment(){
+
+    }
 
     private String currentuser;
     private DatabaseReference RootRef;
 
-    private ImageView profilePortrait;
+    private CircleImageView profilePortrait;
 
     private DashboardViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
+//        dashboardViewModel =
+//                ViewModelProviders.of(this).get(DashboardViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-
-        RootRef = FirebaseDatabase.getInstance().getReference().child("Users");
-        currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        RetrievePhoto();
-
-        final TextView textView_edit = root.findViewById(R.id.edit_profile);
-        TextView edit = textView_edit.findViewById(R.id.edit_profile);
-        edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Edit_profile.class);
-                startActivity(intent);
-            }
-        });
-
-        final TextView textView_nearby_user = root.findViewById(R.id.nearby_user);
-        TextView nearby = textView_nearby_user.findViewById(R.id.nearby_user);
-        nearby.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Nearby_user.class);
-                startActivity(intent);
-            }
-        });
-
-        final TextView textView_setting = root.findViewById(R.id.setting);
-        TextView setting = textView_setting.findViewById(R.id.setting);
-        setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Nearby_user.class);
-                startActivity(intent);
-            }
-        });
-
 
         final SharedPreferences sharedPreferences = Objects.requireNonNull(getActivity()).getSharedPreferences("user", Context.MODE_PRIVATE);
         final String name = sharedPreferences.getString("username", null);
@@ -89,30 +61,73 @@ public class DashboardFragment extends Fragment {
         final TextView textView_email = root.findViewById(R.id.profile_email);
         textView_email.setText(email);
 
+        Button edit = (Button) root.findViewById(R.id.edit_profile);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), Edit_profile.class);
+                startActivity(intent);
+            }
+        });
+
+        Button myPost = root.findViewById(R.id.my_post);
+        myPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Nearby_user.class);
+                startActivity(intent);
+            }
+        });
+
+        Button nearby = root.findViewById(R.id.nearby_user);
+        nearby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Nearby_user.class);
+                startActivity(intent);
+            }
+        });
+
+        Button setting = root.findViewById(R.id.setting);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Nearby_user.class);
+                startActivity(intent);
+            }
+        });
+
+//        RetrievePhoto();
+
         return root;
     }
 
-    private void RetrievePhoto() {
+//    private void RetrievePhoto() {
+//
+//        RootRef = FirebaseDatabase.getInstance().getReference().child("Users");
+//        currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//
+//        RootRef.child(currentuser).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if ((dataSnapshot.exists()) && (dataSnapshot.hasChild("image"))) {
+//                    String retrievePortrait = dataSnapshot.child("image").getValue().toString();
+//                    View v = getLayoutInflater().inflate(R.layout.fragment_dashboard, null);
+//                    profilePortrait = (CircleImageView)  v.findViewById(R.id.profilePortrait);
+//
+//                    Picasso.get().load(retrievePortrait).placeholder(R.drawable.icon_user).into(profilePortrait);
+//                    getActivity().setContentView(v);
+//                }
+//                else {
+//
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 
-        RootRef.child(currentuser).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if ((dataSnapshot.exists()) && (dataSnapshot.hasChild("image"))) {
-                    String retrievePortrait = dataSnapshot.child("image").getValue().toString();
-                    View v = getLayoutInflater().inflate(R.layout.fragment_dashboard, null);
-                    profilePortrait = (ImageView)  v.findViewById(R.id.profilePortrait);
-
-                    Picasso.get().load(retrievePortrait).placeholder(R.drawable.icon_user).into(profilePortrait);
-                    getActivity().setContentView(v);
-                }
-                else {
-
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 }
