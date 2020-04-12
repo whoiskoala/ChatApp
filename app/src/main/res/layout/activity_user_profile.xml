@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fui_buttonShadow"
     tools:context=".User_profile">
 
     <ImageView
         android:id="@+id/top"
         android:layout_width="wrap_content"
-        android:layout_height="320dp"
+        android:layout_height="220dp"
         android:background="@drawable/profile_backgroud"
         android:paddingBottom="5dp" />
 
@@ -19,8 +20,7 @@
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
-        android:background="@drawable/border_1"
+        android:layout_marginTop="120dp"
         android:src="@drawable/icon_user" />
 
 
@@ -50,7 +50,7 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/button_sign_up"
+        android:id="@+id/send_requirement"
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,10 +59,27 @@
         android:layout_marginTop="46dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/botton_1"
-        android:onClick="signupButtonClicked"
         android:radius="20dp"
-        android:text="Send requirement"
+        android:text="Send Request"
         android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/send_message"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/send_requirement"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/botton_1"
+        android:radius="20dp"
+        android:text="Cancel Request"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:visibility="invisible"
         android:textStyle="bold" />
 
 </RelativeLayout>
