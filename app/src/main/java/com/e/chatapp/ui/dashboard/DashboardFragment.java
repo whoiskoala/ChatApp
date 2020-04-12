@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.e.chatapp.Edit_profile;
 import com.e.chatapp.Nearby_user;
 import com.e.chatapp.R;
+import com.e.chatapp.Request_list;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -85,6 +86,15 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Nearby_user.class);
+                startActivity(intent);
+            }
+        });
+
+        Button user_request = root.findViewById(R.id.user_request);
+        user_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Request_list.class);
                 startActivity(intent);
             }
         });

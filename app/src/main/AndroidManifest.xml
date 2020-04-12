@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User_profile"></activity>
+        <activity android:name=".Request_list"></activity>
+        <activity android:name=".User_profile" />
         <activity android:name=".Nearby_user" />
         <activity android:name=".Edit_profile" />
         <activity
