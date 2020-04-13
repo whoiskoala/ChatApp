@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Chat">
+
+    <include
+        android:id="@+id/chat_toolbar"
+        layout="@layout/app_bar"
+        >
+    </include>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="70dp"
+        android:id="@+id/message_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+<!--    android:background="#5F9EA0"-->
+    <LinearLayout
+        android:id="@+id/chat_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/input_message"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:hint="input message here"
+            android:padding="15dp"
+            />
+
+        <Button
+            android:id="@+id/btn_send_message"
+            android:background="@drawable/botton_1"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/baseline_send_white_18dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

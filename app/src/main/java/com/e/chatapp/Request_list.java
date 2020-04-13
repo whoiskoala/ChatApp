@@ -96,7 +96,7 @@ public class Request_list extends AppCompatActivity {
                                                 String RequestUserEmail = dataSnapshot.child("email").getValue().toString();
 
                                                 holder.username.setText(RequestUserName);
-                                                holder.email.setText(RequestUserEmail);
+                                                holder.email.setText("friend Request");
 
                                                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                                                     @Override
