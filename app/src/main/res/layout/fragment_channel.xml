@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/movieButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/ic_category_t15" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/gameButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -28,17 +28,17 @@
         android:contentDescription="TODO" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/sportButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/movieButton"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_category_t163" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/foodButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="64dp"
@@ -49,18 +49,18 @@
         android:contentDescription="TODO" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/techButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
         android:contentDescription="TODO"
-        app:layout_constraintStart_toEndOf="@+id/imageButton7"
+        app:layout_constraintStart_toEndOf="@+id/petButton"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/ic_category_t98" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/petButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -71,7 +71,7 @@
         android:contentDescription="TODO" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/musicButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="64dp"
@@ -81,7 +81,7 @@
         app:srcCompat="@drawable/ic_category_t59" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/phothograButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
@@ -99,7 +99,7 @@
         android:text="@string/movie"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/movieButton" />
 
     <TextView
         android:id="@+id/textView4"
@@ -110,7 +110,7 @@
         android:text="@string/sport"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+        app:layout_constraintTop_toBottomOf="@+id/sportButton" />
 
     <TextView
         android:id="@+id/textView5"
@@ -121,7 +121,7 @@
         android:text="@string/photograph"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton10" />
+        app:layout_constraintTop_toBottomOf="@+id/phothograButton" />
 
     <TextView
         android:id="@+id/textView6"
@@ -132,7 +132,7 @@
         android:text="@string/game"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/gameButton" />
 
     <TextView
         android:id="@+id/textView7"
@@ -143,15 +143,15 @@
         android:text="@string/fashion"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton11" />
+        app:layout_constraintTop_toBottomOf="@+id/fashionButton" />
 
     <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/fashionButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/gameButton"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/ic_category_t33" />
 
@@ -164,7 +164,7 @@
         android:text="@string/music"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
+        app:layout_constraintTop_toBottomOf="@+id/fashionButton" />
 
     <TextView
         android:id="@+id/textView10"
@@ -175,7 +175,7 @@
         android:text="@string/pet"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
+        app:layout_constraintTop_toBottomOf="@+id/petButton" />
 
     <TextView
         android:id="@+id/textView11"
@@ -186,7 +186,7 @@
         android:text="@string/technology"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
+        app:layout_constraintTop_toBottomOf="@+id/techButton" />
 
     <TextView
         android:id="@+id/textView12"
@@ -197,5 +197,5 @@
         android:text="@string/food"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+        app:layout_constraintTop_toBottomOf="@+id/foodButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
